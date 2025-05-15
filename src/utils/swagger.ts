@@ -13,6 +13,9 @@ const swaggerOptions = {
     },
     servers: [
       {
+        url: "https://maitech-apis.onrender.com",
+      },
+      {
         url: 'http://localhost:3008',
       },
     ],
