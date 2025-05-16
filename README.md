@@ -3,8 +3,8 @@
   A Team Task Management Web Application
 
 ## Description:
-    this app servers as an internal tool to help teams manage tasks, set deadlines, assign
-    responsibilities, and monitor project progress in real time. This web-based system support both admin
+    this app serves as an internal tool to help teams manage tasks, set deadlines, assign
+    responsibilities, and monitor project progress in real time. This web-based system, support both admin
     and team member roles.
 
 ## Design Architecture:
@@ -14,7 +14,7 @@
    JWT for session management and authorization 
    Role Base Access Control(RBAC) to manage access for protected routes  
 
-## HTTP MTHODS:
+## HTTP METHODS:
     POST, GET, PUT, DELETE
 
 ## Database:
