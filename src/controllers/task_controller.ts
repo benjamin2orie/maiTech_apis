@@ -1,5 +1,6 @@
 
 import moment from 'moment';
+import mongoose from 'mongoose';
 import { Request, Response } from 'express';
 import taskModel from '../models/task_model';
 import { sendEmailNotification } from '../services/send_email_notification';
@@ -79,11 +80,19 @@ export const updateTaskById = async(req:Request, res:Response):Promise<any>=>{
     const {taskId} = req.params;
     const {title, description, status, dueDate} = req.body;
 
+    if(!mongoose.Types.ObjectId.isValid(taskId)){
+        return res.status(400)
+        .json({message: "Invalid task ID"});
+    };
+
+
+
     try {
         if(!taskId){
             return res.status(400)
             .json({message: "task id is required"});
         };
+        
 
         const task = await taskModel.findById(taskId);
         if(!task){
@@ -125,6 +134,10 @@ export const updateTaskById = async(req:Request, res:Response):Promise<any>=>{
 
 export const deleteTaskById = async(req:Request, res:Response):Promise<any> =>{
     const {taskId} = req.params;
+    
+    if(!mongoose.Types.ObjectId.isValid(taskId)){
+        return res.status(400).json({message: "Invalid task ID"});
+    };
 
     if(!taskId){
         return res.status(400).json({message: "Task ID is required"});
